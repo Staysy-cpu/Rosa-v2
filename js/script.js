@@ -197,6 +197,29 @@
         const promoPopupOverlay = document.getElementById("promoPopupOverlay");
         const promoPopupClose = document.getElementById("promoPopupClose");
         const promoPopupOk = document.getElementById("promoPopupOk");
+        const demoPopupOverlay = document.getElementById("demoPopupOverlay");
+        const demoPopupClose = document.getElementById("demoPopupClose");
+        const demoPopupOk = document.getElementById("demoPopupOk");
+
+        // Открытие поп-апа по клику на иконку MAX
+        document.querySelectorAll(".js-demo-link").forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            openPopup(demoPopupOverlay, demoPopupOk);
+          });
+        });
+
+        // Закрытие поп-апа демонстрационного сайта
+        demoPopupClose.addEventListener("click", function () {
+          closePopup(demoPopupOverlay);
+        });
+        demoPopupOk.addEventListener("click", function () {
+          closePopup(demoPopupOverlay);
+        });
+        demoPopupOverlay.addEventListener("click", function (e) {
+          if (e.target === demoPopupOverlay) closePopup(demoPopupOverlay);
+        });
+
 
         let lastFocused = null;
 
@@ -285,11 +308,49 @@
             closeLightbox();
           } else if (promoPopupOverlay.classList.contains("is-open")) {
             closePopup(promoPopupOverlay);
+          } else if (demoPopupOverlay.classList.contains("is-open")) {
+            closePopup(demoPopupOverlay);
           } else if (popupOverlay.classList.contains("is-open")) {
             closePopup(popupOverlay);
           } else {
             closeMenu();
           }
+        /* ===== Delivery sticky video ===== */
+        const deliveryMedia = document.querySelector(".delivery-media");
+        const deliveryCards = document.querySelector(".delivery-cards");
+        if (deliveryMedia && deliveryCards) {
+          let initialTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
+          function measureDelivery() {
+            deliveryMedia.style.transform = "";
+            void deliveryMedia.offsetHeight;
+            initialTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
+          }
+          window.addEventListener("load", measureDelivery);
+          window.addEventListener("resize", function () {
+            measureDelivery();
+            updateDelivery();
+          });
+
+          function updateDelivery() {
+            const cardsRect = deliveryCards.getBoundingClientRect();
+            const cardsTop = cardsRect.top + window.scrollY;
+            const cardsBottom = cardsRect.bottom + window.scrollY;
+            const mediaH = deliveryMedia.offsetHeight;
+            const headerH = document.getElementById("siteHeader").offsetHeight;
+            const topOffset = headerH + 24;
+            let desiredTop = Math.max(cardsTop, window.scrollY + topOffset);
+            if (desiredTop + mediaH > cardsBottom) {
+              desiredTop = cardsBottom - mediaH;
+            }
+            if (desiredTop < cardsTop) desiredTop = cardsTop;
+            const translateY = desiredTop - initialTop;
+            deliveryMedia.style.transform =
+              "translateY(" + translateY + "px)";
+          }
+          window.addEventListener("scroll", updateDelivery, { passive: true });
+          updateDelivery();
+        }
+
         });
 
         /* ===== Form validation & submit ===== */

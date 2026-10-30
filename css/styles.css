@@ -832,6 +832,86 @@
         background: var(--accent);
       }
 
+      /* ===== DELIVERY ===== */
+      .delivery-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      .delivery-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .delivery-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 24px 26px;
+        box-shadow: 0 4px 18px rgba(35, 40, 35, 0.04);
+      }
+      .delivery-card h3 {
+        margin-bottom: 10px;
+        color: var(--accent);
+      }
+      .delivery-card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+      .delivery-card p:last-child {
+        margin-bottom: 0;
+      }
+      .delivery-card ul {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .delivery-card li {
+        margin-bottom: 6px;
+      }
+      #delivery {
+        background: var(--accent);
+      }
+      #delivery .overline {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      #delivery h2 {
+        color: #fff;
+      }
+      .delivery-media {
+        height: 540px;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 12px 32px rgba(35, 40, 35, 0.12);
+      }
+      .delivery-media video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .delivery-card {
+        min-height: 540px;
+      }
+
+      @media (max-width: 900px) {
+        .delivery-grid {
+          grid-template-columns: 1fr;
+        }
+        .delivery-media {
+          position: static;
+          order: -1;
+          height: 320px;
+        }
+        .delivery-card {
+          min-height: auto;
+        }
+      }
+
+
       /* ===== CONTACTS ===== */
       .contacts-intro {
         max-width: 720px;

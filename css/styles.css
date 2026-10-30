@@ -30,7 +30,7 @@
       }
       html,
       body {
-        overflow-x: hidden;
+        overflow-x: clip;
       }
       body {
         font-family: var(--font-body);
@@ -875,10 +875,18 @@
       #delivery {
         background: var(--accent);
       }
-      #delivery .overline {
+      .delivery-left {
+        position: sticky;
+        top: calc(var(--header-h) + 24px);
+        align-self: start;
+      }
+      .delivery-head {
+        margin-bottom: 16px;
+      }
+      .delivery-head .overline {
         color: rgba(255, 255, 255, 0.72);
       }
-      #delivery h2 {
+      .delivery-head h2 {
         color: #fff;
       }
       .delivery-media {
@@ -893,9 +901,6 @@
         object-fit: cover;
         display: block;
       }
-      .delivery-card {
-        min-height: 540px;
-      }
 
       @media (max-width: 900px) {
         .delivery-grid {
@@ -905,6 +910,9 @@
           position: static;
           order: -1;
           height: 320px;
+        }
+        .delivery-cards {
+          margin-top: 0;
         }
         .delivery-card {
           min-height: auto;

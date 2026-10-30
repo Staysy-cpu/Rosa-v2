@@ -315,43 +315,20 @@
           } else {
             closeMenu();
           }
-        /* ===== Delivery sticky video ===== */
-        const deliveryMedia = document.querySelector(".delivery-media");
-        const deliveryCards = document.querySelector(".delivery-cards");
-        if (deliveryMedia && deliveryCards) {
-          let initialTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
-          function measureDelivery() {
-            deliveryMedia.style.transform = "";
-            void deliveryMedia.offsetHeight;
-            initialTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
-          }
-          window.addEventListener("load", measureDelivery);
-          window.addEventListener("resize", function () {
-            measureDelivery();
-            updateDelivery();
-          });
-
-          function updateDelivery() {
-            const cardsRect = deliveryCards.getBoundingClientRect();
-            const cardsTop = cardsRect.top + window.scrollY;
-            const cardsBottom = cardsRect.bottom + window.scrollY;
-            const mediaH = deliveryMedia.offsetHeight;
-            const headerH = document.getElementById("siteHeader").offsetHeight;
-            const topOffset = headerH + 24;
-            let desiredTop = Math.max(cardsTop, window.scrollY + topOffset);
-            if (desiredTop + mediaH > cardsBottom) {
-              desiredTop = cardsBottom - mediaH;
-            }
-            if (desiredTop < cardsTop) desiredTop = cardsTop;
-            const translateY = desiredTop - initialTop;
-            deliveryMedia.style.transform =
-              "translateY(" + translateY + "px)";
-          }
-          window.addEventListener("scroll", updateDelivery, { passive: true });
-          updateDelivery();
-        }
-
         });
+
+        /* ===== Delivery cards alignment ===== */
+        const deliveryHead = document.querySelector(".delivery-head");
+        const deliveryCardsAlign = document.querySelector(".delivery-cards");
+        if (deliveryHead && deliveryCardsAlign) {
+          function alignDeliveryCards() {
+            const headStyle = window.getComputedStyle(deliveryHead);
+            const marginBottom = parseFloat(headStyle.marginBottom) || 0;
+            deliveryCardsAlign.style.marginTop = (deliveryHead.offsetHeight + marginBottom) + "px";
+          }
+          alignDeliveryCards();
+          window.addEventListener("resize", alignDeliveryCards);
+        }
 
         /* ===== Form validation & submit ===== */
         const form = document.getElementById("contactForm");

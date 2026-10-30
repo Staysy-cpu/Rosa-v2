@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
+    <title>Питомник растений "Роса"</title>
+    <meta
+      name="description"
+      content="Питомник «Роса»: декоративные деревья и кустарники, хвойные, многолетники. Саженцы с фитоконтролем, доставка по РФ, консультация агронома."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" id="siteHeader">
+      <div class="container header-inner">
+        <a class="logo" href="#hero" aria-label="Питомник Роса — на главную">
+          <span class="logo-main">Роса</span>
+          <span class="logo-sub">питомник</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+          <a href="#products">Растения</a>
+          <a href="#gallery">Галерея</a>
+          <a href="#why">Почему мы</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="header-phone" href="tel:+79180000000">8 918 000 00 00</a>
+          <a class="btn header-cta" href="#contacts">Подобрать растения</a>
+          <button
+            class="burger"
+            id="burger"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <button
+        class="menu-close"
+        id="menuClose"
+        type="button"
+        aria-label="Закрыть меню"
+      >
+        ×
+      </button>
+      <nav aria-label="Мобильная навигация">
+        <a href="#products">Растения</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#why">Почему мы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="mobile-menu-actions">
+        <a class="mobile-phone" href="tel:+79180000000">8 918 000 00 00</a>
+        <a class="btn" href="#contacts">Подобрать растения</a>
+      </div>
+    </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="images/rosa1.jpg" alt="" />
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>
+            Идеальные саженцы для ваших проектов.<br />Поставка точно в срок
+          </h1>
+          <p class="hero-sub">
+            Надёжный поставщик качественного посадочного материала для бизнеса.
+            Каждая позиция проходит фитоконтроль перед отправкой.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn--light" href="#contacts">Заказать консультацию</a>
+            <button
+              class="btn btn--ghost"
+              id="specialOfferBtn"
+              type="button"
+              onclick="getSpecialOffer()"
+            >
+              Получить спецпредложение
+            </button>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge">Формируем заказ за 24 часа</span>
+            <span class="hero-badge">Бережная доставка по РФ</span>
+            <span class="hero-badge">Гибкая система скидок от 50 единиц</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS ===== -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="overline">Каталог</span>
+            <h2>Популярные растения этого сезона</h2>
+          </div>
+          <p>
+            Отобранные позиции, которые чаще всего заказывают ландшафтные
+            дизайнеры и садоводы. Все саженцы прошли фитоконтроль.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-media">
+              <img
+                src="images/melba.webp"
+                alt="Саженец яблони Мельба"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-body">
+              <span class="product-tag">Плодовые деревья</span>
+              <h3 class="product-title">Яблоня «Мельба»</h3>
+              <div class="product-meta">
+                <span>Возраст: 2 года</span>
+                <span>Корневая: ОКС</span>
+                <span>В наличии: 50+ шт.</span>
+              </div>
+              <div class="product-price">1 200 ₽</div>
+              <div class="product-actions">
+                <a class="btn btn--outline btn--small" href="#contacts"
+                  >Заказать консультацию</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img
+                src="images/gortenziya.jpg"
+                alt="Гортензия метельчатая Лаймлайт"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-body">
+              <span class="product-tag">Декоративные кустарники</span>
+              <h3 class="product-title">Гортензия метельчатая «Лаймлайт»</h3>
+              <div class="product-meta">
+                <span>Высота: 40–60 см</span>
+                <span>Корневая: ЗКС (Р9)</span>
+                <span>В наличии: 100+ шт.</span>
+              </div>
+              <div class="product-price">950 ₽</div>
+              <div class="product-actions">
+                <a class="btn btn--outline btn--small" href="#contacts"
+                  >Заказать консультацию</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img
+                src="images/el-kolyuchaya-hupsi-150-175.jpg"
+                alt="Ель колючая Хупси"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-body">
+              <span class="product-tag">Хвойные / Крупномеры</span>
+              <h3 class="product-title">Ель колючая «Хупси»</h3>
+              <div class="product-meta">
+                <span>Высота: 2,5–3 м</span>
+                <span>Упаковка: ком земли</span>
+                <span>Под заказ: 48 ч.</span>
+              </div>
+              <div class="product-price">18 500 ₽</div>
+              <div class="product-actions">
+                <a class="btn btn--outline btn--small" href="#contacts"
+                  >Заказать консультацию</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img
+                src="images/spireya.jpg"
+                alt="Спирея серая Грефшейм"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-body">
+              <span class="product-tag">Для живой изгороди</span>
+              <h3 class="product-title">Спирея серая «Грефшейм»</h3>
+              <div class="product-meta">
+                <span>Высота: 30–40 см</span>
+                <span>Корневая: ОКС</span>
+                <span>В наличии: рассада</span>
+              </div>
+              <div class="product-price">
+                450 ₽ <span class="price-note">· акция 3+1</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn btn--outline btn--small" href="#contacts"
+                  >Заказать консультацию</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY (Преимущества) ===== -->
+    <section class="section section--alt" id="why">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="overline">Преимущества</span>
+            <h2>Почему клиенты выбирают «Росу»</h2>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card why-card--accent">
+            <span class="why-num">01</span>
+            <h3 class="why-title">Гарантия 100% приживаемости</h3>
+            <p class="why-text">
+              Растения выращены в средней полосе. Если саженец погибнет в
+              течение года — заменим бесплатно.
+            </p>
+          </article>
+          <article class="why-card">
+            <span class="why-num">02</span>
+            <h3 class="why-title">Открытая корневая система (ОКС)</h3>
+            <p class="why-text">
+              Вы видите живые, мощные корни без гнили. Никаких пересушенных
+              горшков.
+            </p>
+          </article>
+          <article class="why-card">
+            <span class="why-num">03</span>
+            <h3 class="why-title">Только районированные сорта</h3>
+            <p class="why-text">
+              Морозостойкие деревья и кустарники, которые не вымерзнут зимой и
+              не требуют сложного укрытия.
+            </p>
+          </article>
+          <article class="why-card">
+            <span class="why-num">04</span>
+            <h3 class="why-title">Выкопка под заказ</h3>
+            <p class="why-text">
+              Растение копают за 24 часа до отправки. Никакого хранения на
+              складе — только свежевыкопанный материал.
+            </p>
+          </article>
+          <article class="why-card">
+            <span class="why-num">05</span>
+            <h3 class="why-title">Агроном в подарок</h3>
+            <p class="why-text">
+              Бесплатная консультация по подбору сортов под вашу почву и
+              видеоинструкция по посадке в каждом заказе.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="overline">Галерея</span>
+            <h2>Питомник в деталях</h2>
+          </div>
+          <div class="gallery-controls">
+            <button
+              class="gallery-arrow"
+              id="galleryPrev"
+              type="button"
+              aria-label="Предыдущие фотографии"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M15 5l-7 7 7 7" />
+              </svg>
+            </button>
+            <button
+              class="gallery-arrow"
+              id="galleryNext"
+              type="button"
+              aria-label="Следующие фотографии"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="gallery-viewport">
+          <div class="gallery-track" id="galleryTrack">
+            <div class="gallery-slide">
+              <img
+                src="images/g1.jpg"
+                alt="Фотография питомника 1"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g2.jpg"
+                alt="Фотография питомника 2"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g3.jpg"
+                alt="Фотография питомника 3"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g4.jpg"
+                alt="Фотография питомника 4"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g5.jpg"
+                alt="Фотография питомника 5"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g6.jpg"
+                alt="Фотография питомника 6"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g7.jpg"
+                alt="Фотография питомника 7"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g8.jpg"
+                alt="Фотография питомника 8"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g9.jpg"
+                alt="Фотография питомника 9"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="images/g10.jpg"
+                alt="Фотография питомника 10"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-dots"
+          id="galleryDots"
+          aria-label="Пагинация галереи"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTS ===== -->
+    <section class="section section--alt" id="contacts">
+      <div class="container">
+        <div class="contacts-intro">
+          <span class="overline">Связаться с нами</span>
+          <h2>Получите консультацию за 10 минут</h2>
+          <p>
+            Наши специалисты помогут подобрать растения под ваш проект,
+            рассчитают стоимость и сроки поставки.
+          </p>
+        </div>
+
+        <div class="contacts-grid">
+          <!-- LEFT: form -->
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-fields">
+              <div class="form-field">
+                <label for="name">Имя <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Как к вам обращаться"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="phone">Телефон <span class="req">*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+7 (___) ___-__-__"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="comment">Комментарий</label>
+                <textarea
+                  id="comment"
+                  name="comment"
+                  placeholder="Расскажите о задаче или задайте вопрос"
+                ></textarea>
+              </div>
+              <label class="checkbox-row">
+                <input type="checkbox" id="consent" name="consent" required />
+                <span
+                  >Я согласен на обработку персональных данных и принимаю
+                  <a href="#" target="_blank" rel="noopener"
+                    >политику конфиденциальности</a
+                  >.</span
+                >
+              </label>
+            </div>
+            <div class="form-footer">
+              <button class="btn form-submit" type="submit">
+                Заказать звонок
+              </button>
+            </div>
+          </form>
+
+          <!-- RIGHT: contacts + map -->
+          <div class="contact-details">
+            <div class="contact-block">
+              <h3>Питомник «Роса»</h3>
+              <p class="contact-address">
+                Калужская обл., с. Ивановское,<br />ул. Объездная, д. 7
+              </p>
+              <a class="contact-phone" href="tel:+79180000000"
+                >8 918 000 00 00</a
+              >
+              <div class="messengers">
+                <a
+                  class="messenger-link"
+                  href="https://max.ru"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="MAX"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2v-4h2v4zm0-6h-2V8h2v2z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="messenger-link"
+                  href="https://t.me"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Telegram"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M9.04 15.47l-.38 5.35c.54 0 .78-.23 1.06-.5l2.54-2.43 5.27 3.86c.97.53 1.66.25 1.92-.9L22.9 4.6c.3-1.4-.5-1.95-1.44-1.6L2.4 10.4c-1.37.53-1.35 1.3-.23 1.64l5.1 1.6L19.1 6.6c.56-.37 1.07-.17.65.2l-9.7 8.67z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="map-wrap">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=36.26%2C54.51&z=11&pt=36.26,54.51,pm2rdm"
+                title="Питомник Роса на карте"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a class="logo" href="#hero">
+              <span class="logo-main">Роса</span>
+              <span class="logo-sub">питомник</span>
+            </a>
+            <p>ООО «Питомник «Роса»<br />ИНН 0000000000</p>
+          </div>
+          <nav class="footer-nav" aria-label="Навигация в подвале">
+            <a href="#products">Растения</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#why">Почему мы</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+          <div class="footer-contacts">
+            <p>Калужская обл., с. Ивановское,<br />ул. Объездная, д. 7</p>
+            <p><a href="tel:+79180000000">8 918 000 00 00</a></p>
+            <div class="messengers">
+              <a
+                class="messenger-link"
+                href="https://max.ru"
+                target="_blank"
+                rel="noopener"
+                aria-label="MAX"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2v-4h2v4zm0-6h-2V8h2v2z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="messenger-link"
+                href="https://t.me"
+                target="_blank"
+                rel="noopener"
+                aria-label="Telegram"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9.04 15.47l-.38 5.35c.54 0 .78-.23 1.06-.5l2.54-2.43 5.27 3.86c.97.53 1.66.25 1.92-.9L22.9 4.6c.3-1.4-.5-1.95-1.44-1.6L2.4 10.4c-1.37.53-1.35 1.3-.23 1.64l5.1 1.6L19.1 6.6c.56-.37 1.07-.17.65.2l-9.7 8.67z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Публичная оферта</a>
+            <a href="#">Согласие на обработку персональных данных</a>
+            <a href="#">Политика cookie</a>
+          </div>
+          <a class="to-top" href="#hero">Наверх ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== POPUP: Заявка отправлена ===== -->
+    <div
+      class="popup-overlay"
+      id="popupOverlay"
+      role="presentation"
+      aria-hidden="true"
+    >
+      <div
+        class="popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popupTitle"
+        aria-describedby="popupText"
+      >
+        <button
+          class="popup-close"
+          id="popupClose"
+          type="button"
+          aria-label="Закрыть уведомление"
+        >
+          ×
+        </button>
+        <div class="popup-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+        <h3 id="popupTitle">Заявка отправлена</h3>
+        <p id="popupText">
+          Ожидайте звонок — специалист питомника свяжется с вами в течение 10
+          минут.
+        </p>
+        <button class="btn" id="popupOk" type="button">Хорошо</button>
+      </div>
+    </div>
+
+    <!-- ===== POPUP: Спецпредложение ===== -->
+    <div
+      class="popup-overlay"
+      id="promoPopupOverlay"
+      role="presentation"
+      aria-hidden="true"
+    >
+      <div
+        class="popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="promoPopupTitle"
+        aria-describedby="promoPopupText"
+      >
+        <button
+          class="popup-close"
+          id="promoPopupClose"
+          type="button"
+          aria-label="Закрыть уведомление"
+        >
+          ×
+        </button>
+        <div
+          class="popup-icon"
+          aria-hidden="true"
+          style="background: rgba(60, 90, 69, 0.15); color: var(--accent)"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+            />
+          </svg>
+        </div>
+        <h3 id="promoPopupTitle">Ваше спецпредложение</h3>
+        <p id="promoPopupText">
+          Скидка 10% на первый заказ по промокоду
+          <strong style="color: var(--accent); font-size: 1.1em">РОСА10</strong
+          >!
+        </p>
+        <button class="btn" id="promoPopupOk" type="button">Отлично</button>
+      </div>
+    </div>
+
+    <!-- ===== LIGHTBOX (Увеличение фото) ===== -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+      <button
+        class="lightbox-close"
+        id="lightboxClose"
+        type="button"
+        aria-label="Закрыть увеличенное фото"
+      >
+        &times;
+      </button>
+      <img
+        class="lightbox-img"
+        id="lightboxImg"
+        src=""
+        alt="Увеличенное фото"
+      />
+    </div>
+  </body>
+</html>

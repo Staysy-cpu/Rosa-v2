@@ -329,6 +329,7 @@
           alignDeliveryCards();
           window.addEventListener("resize", alignDeliveryCards);
         }
+/* ===== Form validation & submit ===== */
 
         /* ===== Form validation & submit ===== */
         const form = document.getElementById("contactForm");
@@ -362,6 +363,49 @@
           form.reset();
           openPopup(popupOverlay, popupOk);
         });
+
+        /* ===== Mobile delivery scroll animation ===== */
+        if (window.matchMedia("(max-width: 768px)").matches) {
+          const deliveryMedia = document.querySelector(".delivery-media");
+          const deliveryCards = document.querySelector(".delivery-cards");
+          if (deliveryMedia && deliveryCards) {
+            let isScrollingDown = true;
+            let lastScrollY = window.scrollY;
+            const mediaH = deliveryMedia.offsetHeight;
+
+            function updateDeliveryScroll() {
+              const currentScrollY = window.scrollY;
+              isScrollingDown = currentScrollY > lastScrollY;
+              lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+
+              const mediaTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
+              const cardsTop = deliveryCards.getBoundingClientRect().top + window.scrollY;
+              const cardsBottom = cardsTop + deliveryCards.offsetHeight;
+
+              // If cards are above the media, show them
+              if (cardsBottom < mediaTop + mediaH / 2) {
+                deliveryCards.style.opacity = "1";
+                deliveryCards.style.transform = "translateY(0)";
+                return;
+              }
+
+              const progress = Math.min(Math.max((cardsTop - mediaTop) / mediaH, 0), 1);
+
+              if (isScrollingDown) {
+                // Scrolling down: cards emerge from behind
+                deliveryCards.style.opacity = progress;
+                deliveryCards.style.transform = `translateY(${-(1 - progress) * 100}px)`;
+              } else {
+                // Scrolling up: cards go behind and hide
+                deliveryCards.style.opacity = 1 - progress;
+                deliveryCards.style.transform = `translateY(${progress * 100}px)`;
+              }
+            }
+
+            window.addEventListener("scroll", updateDeliveryScroll, { passive: true });
+            updateDeliveryScroll();
+          }
+        }
 
         /* ===== Smooth scroll ===== */
         document.querySelectorAll('a[href^="#"]').forEach(function (link) {

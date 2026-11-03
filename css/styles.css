@@ -1566,6 +1566,13 @@
         }
       }
 
+      @media (max-width: 768px) {
+        .decor img {
+          max-height: 30px !important;
+          width: auto !important;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .hero-bg img {
           animation: none;

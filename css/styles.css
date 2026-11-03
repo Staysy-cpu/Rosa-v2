@@ -21,8 +21,8 @@
         --text: #232823;
         --text-muted: #6e726a;
         --line: #dcd6cb;
-        --accent: #3c5a45;
-        --accent-hover: #4e6f58;
+        --accent: #2F5D50;
+        --accent-hover: #3d7363;
         --radius: 12px;
         --radius-lg: 18px;
         --font-head: "Fraunces", serif;
@@ -133,7 +133,7 @@
       }
       .btn:hover {
         background: var(--accent-hover);
-        box-shadow: 0 8px 20px rgba(60, 90, 69, 0.16);
+        box-shadow: 0 8px 20px rgba(47, 93, 80, 0.16);
         transform: translateY(-3px);
       }
       .btn:active {
@@ -145,7 +145,7 @@
         border-color: var(--accent);
       }
       .btn--outline:hover {
-        background: rgba(60, 90, 69, 0.06);
+        background: rgba(47, 93, 80, 0.06);
         box-shadow: none;
       }
       .btn--small {
@@ -466,7 +466,18 @@
       }
 
       .hero::after {
-        display: none;
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(
+          90deg,
+          rgba(22, 28, 23, 0.82) 0%,
+          rgba(22, 28, 23, 0.55) 35%,
+          rgba(22, 28, 23, 0.22) 60%,
+          rgba(22, 28, 23, 0.10) 80%
+        );
       }
 
       .hero .container {
@@ -751,7 +762,7 @@
       .gallery-arrow:hover:not(:disabled) {
         border-color: var(--accent);
         color: var(--accent);
-        background: rgba(60, 90, 69, 0.05);
+        background: rgba(47, 93, 80, 0.05);
         transform: translateY(-2px);
       }
       .gallery-arrow:disabled {
@@ -824,6 +835,28 @@
         grid-template-columns: 1fr 1fr;
         gap: 40px;
         align-items: start;
+      }
+
+      /* ===== DECORATIVE IMAGES ===== */
+      .decor {
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .decor img {
+        display: block;
+        max-width: none;
+        width: auto;
+        height: auto;
+      }
+      .decor-md {
+        width: 160px;
+      }
+      .decor-lg {
+        width: 240px;
+      }
+      .decor-xl {
+        width: 360px;
       }
       .delivery-cards {
         display: flex;
@@ -964,7 +997,7 @@
       .form-field textarea:focus {
         outline: none;
         border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(60, 90, 69, 0.12);
+        box-shadow: 0 0 0 3px rgba(47, 93, 80, 0.12);
       }
       .form-field textarea {
         min-height: 92px;
@@ -1055,7 +1088,7 @@
       }
       .messenger-link:hover {
         border-color: var(--accent);
-        background: rgba(60, 90, 69, 0.06);
+        background: rgba(47, 93, 80, 0.06);
         transform: translateY(-2px);
       }
       .messenger-link svg {
@@ -1144,7 +1177,7 @@
         width: 56px;
         height: 56px;
         border-radius: 50%;
-        background: rgba(60, 90, 69, 0.1);
+        background: rgba(47, 93, 80, 0.1);
         color: var(--accent);
         display: flex;
         align-items: center;
@@ -1406,7 +1439,13 @@
 
       @media (max-width: 768px) {
         .hero::after {
-          display: none;
+          background: linear-gradient(
+            90deg,
+            rgba(22, 28, 23, 0.82) 0%,
+            rgba(22, 28, 23, 0.55) 35%,
+            rgba(22, 28, 23, 0.22) 60%,
+            rgba(22, 28, 23, 0.10) 80%
+          );
         }
         .gallery-slide {
           flex: 0 0 100%;

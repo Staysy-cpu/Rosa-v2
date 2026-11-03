@@ -365,38 +365,58 @@
         });
 
         /* ===== Mobile delivery scroll animation ===== */
-        if (window.matchMedia("(max-width: 768px)").matches) {
+        if (window.matchMedia("(max-width: 900px)").matches) {
           const deliveryMedia = document.querySelector(".delivery-media");
           const deliveryCards = document.querySelector(".delivery-cards");
           if (deliveryMedia && deliveryCards) {
-            let isScrollingDown = true;
             let lastScrollY = window.scrollY;
             const mediaH = deliveryMedia.offsetHeight;
+            const mediaTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
+            const cardsInitialTransform = deliveryCards.style.transform || "translateY(0)";
+            const cardsInitialOpacity = deliveryCards.style.opacity || "1";
 
             function updateDeliveryScroll() {
               const currentScrollY = window.scrollY;
-              isScrollingDown = currentScrollY > lastScrollY;
-              lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+              const delta = currentScrollY - lastScrollY;
+              lastScrollY = currentScrollY;
 
               const mediaTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
               const cardsTop = deliveryCards.getBoundingClientRect().top + window.scrollY;
               const cardsBottom = cardsTop + deliveryCards.offsetHeight;
 
-              // If cards are above the media, show them
-              if (cardsBottom < mediaTop + mediaH / 2) {
+              // Calculate how far cards are from media
+              const cardsDistance = cardsTop - mediaTop;
+
+              // If cards are above the media viewport, show them fully
+              if (cardsBottom <= mediaTop) {
                 deliveryCards.style.opacity = "1";
                 deliveryCards.style.transform = "translateY(0)";
                 return;
               }
 
-              const progress = Math.min(Math.max((cardsTop - mediaTop) / mediaH, 0), 1);
+              // Calculate progress based on how deep cards are into the media
+              const progress = Math.min(Math.max(cardsDistance / mediaH, 0), 1);
 
-              if (isScrollingDown) {
-                // Scrolling down: cards emerge from behind
+              // Calculate progress based on how deep cards are into the media
+              const progress = Math.min(Math.max(cardsDistance / mediaH, 0), 1);
+
+              // Если карточки заезжают под фото полностью – прячем их мгновенно
+              if (progress >= 1) {
+                deliveryCards.style.opacity = "0";
+                deliveryCards.style.transform = "translateY(100px)";
+                return;
+              }
+
+              if (delta > 0) {
+                // Scrolling down: cards emerge from under the photo
+                // opacity: 0 (hidden) -> 1 (visible)
+                // transform: +100px (behind) -> 0 (visible)
                 deliveryCards.style.opacity = progress;
                 deliveryCards.style.transform = `translateY(${-(1 - progress) * 100}px)`;
               } else {
-                // Scrolling up: cards go behind and hide
+                // Scrolling up: cards go behind and hide under the photo
+                // opacity: 1 (visible) -> 0 (hidden)
+                // transform: 0 (visible) -> +100px (behind)
                 deliveryCards.style.opacity = 1 - progress;
                 deliveryCards.style.transform = `translateY(${progress * 100}px)`;
               }

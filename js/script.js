@@ -322,6 +322,26 @@
         const deliveryCardsAlign = document.querySelector(".delivery-cards");
         if (deliveryHead && deliveryCardsAlign) {
           function alignDeliveryCards() {
+            if (window.matchMedia("(max-width: 900px)").matches) {
+              // На мобильных/планшетах карточки идут под фото — отступ не нужен
+              deliveryCardsAlign.style.marginTop = "0px";
+              // Фиксация карточек за фото: top = верхний край фото
+              const headStyle = window.getComputedStyle(deliveryHead);
+              const marginBottom = parseFloat(headStyle.marginBottom) || 0;
+              const photoTop = 62 + 24 + deliveryHead.offsetHeight + marginBottom;
+              document.querySelectorAll(".delivery-card").forEach(function (card) {
+                card.style.position = "sticky";
+                card.style.top = photoTop + "px";
+                card.style.zIndex = "1";
+              });
+              return;
+            }
+            // На десктопе сбрасываем возможные инлайн-стили от мобильного режима
+            document.querySelectorAll(".delivery-card").forEach(function (card) {
+              card.style.position = "";
+              card.style.top = "";
+              card.style.zIndex = "";
+            });
             const headStyle = window.getComputedStyle(deliveryHead);
             const marginBottom = parseFloat(headStyle.marginBottom) || 0;
             deliveryCardsAlign.style.marginTop = (deliveryHead.offsetHeight + marginBottom) + "px";
@@ -364,68 +384,12 @@
           openPopup(popupOverlay, popupOk);
         });
 
-        /* ===== Mobile delivery scroll animation ===== */
-        if (window.matchMedia("(max-width: 900px)").matches) {
-          const deliveryMedia = document.querySelector(".delivery-media");
-          const deliveryCards = document.querySelector(".delivery-cards");
-          if (deliveryMedia && deliveryCards) {
-            let lastScrollY = window.scrollY;
-            const mediaH = deliveryMedia.offsetHeight;
-            const mediaTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
-            const cardsInitialTransform = deliveryCards.style.transform || "translateY(0)";
-            const cardsInitialOpacity = deliveryCards.style.opacity || "1";
-
-            function updateDeliveryScroll() {
-              const currentScrollY = window.scrollY;
-              const delta = currentScrollY - lastScrollY;
-              lastScrollY = currentScrollY;
-
-              const mediaTop = deliveryMedia.getBoundingClientRect().top + window.scrollY;
-              const cardsTop = deliveryCards.getBoundingClientRect().top + window.scrollY;
-              const cardsBottom = cardsTop + deliveryCards.offsetHeight;
-
-              // Calculate how far cards are from media
-              const cardsDistance = cardsTop - mediaTop;
-
-              // If cards are above the media viewport, show them fully
-              if (cardsBottom <= mediaTop) {
-                deliveryCards.style.opacity = "1";
-                deliveryCards.style.transform = "translateY(0)";
-                return;
-              }
-
-              // Calculate progress based on how deep cards are into the media
-              const progress = Math.min(Math.max(cardsDistance / mediaH, 0), 1);
-
-              // Calculate progress based on how deep cards are into the media
-              const progress = Math.min(Math.max(cardsDistance / mediaH, 0), 1);
-
-              // Если карточки заезжают под фото полностью – прячем их мгновенно
-              if (progress >= 1) {
-                deliveryCards.style.opacity = "0";
-                deliveryCards.style.transform = "translateY(100px)";
-                return;
-              }
-
-              if (delta > 0) {
-                // Scrolling down: cards emerge from under the photo
-                // opacity: 0 (hidden) -> 1 (visible)
-                // transform: +100px (behind) -> 0 (visible)
-                deliveryCards.style.opacity = progress;
-                deliveryCards.style.transform = `translateY(${-(1 - progress) * 100}px)`;
-              } else {
-                // Scrolling up: cards go behind and hide under the photo
-                // opacity: 1 (visible) -> 0 (hidden)
-                // transform: 0 (visible) -> +100px (behind)
-                deliveryCards.style.opacity = 1 - progress;
-                deliveryCards.style.transform = `translateY(${progress * 100}px)`;
-              }
-            }
-
-            window.addEventListener("scroll", updateDeliveryScroll, { passive: true });
-            updateDeliveryScroll();
-          }
-        }
+        /* ===== Очистка инлайн-стилей карточек доставки (на случай старых) ===== */
+        document.querySelectorAll(".delivery-card").forEach(function (card) {
+          card.style.opacity = "";
+          card.style.visibility = "";
+          card.style.transform = "";
+        });
 
         /* ===== Smooth scroll ===== */
         document.querySelectorAll('a[href^="#"]').forEach(function (link) {

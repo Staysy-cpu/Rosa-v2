@@ -11,6 +11,19 @@
       name="description"
       content="Питомник «Роса»: декоративные деревья и кустарники, хвойные, многолетники. Саженцы с фитоконтролем, доставка по РФ, консультация агронома."
     />
+    <meta name="theme-color" content="#2F5D50" />
+    <link rel="canonical" href="https://staysy-cpu.github.io/Rosa-v2/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:url" content="https://staysy-cpu.github.io/Rosa-v2/" />
+    <meta property="og:title" content="Питомник растений &quot;Роса&quot;" />
+    <meta property="og:description" content="Питомник «Роса»: декоративные деревья и кустарники, хвойные, многолетники. Саженцы с фитоконтролем, доставка по РФ, консультация агронома." />
+    <meta property="og:image" content="https://staysy-cpu.github.io/Rosa-v2/images/rosa1-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="678" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" as="image" href="images/rosa1-1600.webp" imagesrcset="images/rosa1-800.webp 800w, images/rosa1-1600.webp 1600w" imagesizes="100vw" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,6 +32,7 @@
     />
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
     <!-- ===== HEADER ===== -->
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
@@ -76,10 +90,21 @@
     </div>
     <div class="menu-overlay" id="menuOverlay"></div>
 
+    <main id="main">
+
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
       <div class="hero-bg" aria-hidden="true">
-        <img src="images/rosa1.webp" alt="" />
+        <img
+          src="images/rosa1-1600.webp"
+          srcset="images/rosa1-800.webp 800w, images/rosa1-1600.webp 1600w"
+          sizes="100vw"
+          width="1600"
+          height="904"
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
       <div class="container">
         <div class="hero-content">
@@ -96,7 +121,6 @@
               class="btn"
               id="specialOfferBtn"
               type="button"
-              onclick="getSpecialOffer()"
             >
               Получить спецпредложение
             </button>
@@ -111,8 +135,8 @@
     </section>
 
     <!-- ===== PRODUCTS ===== -->
-    <section class="section" id="products" style="position: relative;">
-      <div class="decor decor-right decor-lg" style="top: 60px; right: -110px;">
+    <section class="section" id="products">
+      <div class="decor decor-right decor-lg decor--products">
         <img src="images/decor-leaf-1.svg" alt="" />
       </div>
       <div class="container">
@@ -132,6 +156,8 @@
             <div class="product-media">
               <img
                 src="images/melba.webp"
+                width="1200"
+                height="1200"
                 alt="Саженец яблони Мельба"
                 loading="lazy"
               />
@@ -157,6 +183,8 @@
             <div class="product-media">
               <img
                 src="images/gortenziya.webp"
+                width="1200"
+                height="1558"
                 alt="Гортензия метельчатая Лаймлайт"
                 loading="lazy"
               />
@@ -182,6 +210,8 @@
             <div class="product-media">
               <img
                 src="images/el-kolyuchaya-hupsi-150-175.webp"
+                width="1200"
+                height="1200"
                 alt="Ель колючая Хупси"
                 loading="lazy"
               />
@@ -207,6 +237,8 @@
             <div class="product-media">
               <img
                 src="images/spireya.webp"
+                width="1200"
+                height="800"
                 alt="Спирея серая Грефшейм"
                 loading="lazy"
               />
@@ -234,8 +266,8 @@
     </section>
 
     <!-- ===== WHY (Преимущества) ===== -->
-    <section class="section section--alt" id="why" style="position: relative;">
-      <div class="decor decor-left decor-xl" style="bottom: -20px; left: 25px;">
+    <section class="section section--alt" id="why">
+      <div class="decor decor-left decor-xl decor--why">
         <img src="images/decor-leaf-2.svg" alt="" />
       </div>
       <div class="container">
@@ -292,8 +324,8 @@
     </section>
 
     <!-- ===== GALLERY ===== -->
-    <section class="section" id="gallery" style="position: relative;">
-      <div class="decor decor-right decor-lg" style="bottom: 40px; right: -95px;">
+    <section class="section" id="gallery">
+      <div class="decor decor-right decor-lg decor--gallery">
         <img src="images/decor-leaf-3.svg" alt="" />
       </div>
       <div class="container">
@@ -347,6 +379,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g1.webp"
+                width="1200"
+                height="675"
                 alt="Фотография питомника 1"
                 loading="lazy"
               />
@@ -354,6 +388,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g2.webp"
+                width="1200"
+                height="800"
                 alt="Фотография питомника 2"
                 loading="lazy"
               />
@@ -361,6 +397,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g3.webp"
+                width="1200"
+                height="1271"
                 alt="Фотография питомника 3"
                 loading="lazy"
               />
@@ -368,6 +406,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g4.webp"
+                width="1200"
+                height="1600"
                 alt="Фотография питомника 4"
                 loading="lazy"
               />
@@ -375,6 +415,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g5.webp"
+                width="1200"
+                height="1351"
                 alt="Фотография питомника 5"
                 loading="lazy"
               />
@@ -382,6 +424,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g6.webp"
+                width="1200"
+                height="454"
                 alt="Фотография питомника 6"
                 loading="lazy"
               />
@@ -389,6 +433,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g7.webp"
+                width="1200"
+                height="473"
                 alt="Фотография питомника 7"
                 loading="lazy"
               />
@@ -396,6 +442,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g8.webp"
+                width="1200"
+                height="800"
                 alt="Фотография питомника 8"
                 loading="lazy"
               />
@@ -403,6 +451,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g9.webp"
+                width="1200"
+                height="900"
                 alt="Фотография питомника 9"
                 loading="lazy"
               />
@@ -410,6 +460,8 @@
             <div class="gallery-slide">
               <img
                 src="images/g10.webp"
+                width="1200"
+                height="674"
                 alt="Фотография питомника 10"
                 loading="lazy"
               />
@@ -425,11 +477,11 @@
       </div>
     </section>
     <!-- ===== DELIVERY ===== -->
-    <section class="section section--alt" id="delivery" style="position: relative;">
+    <section class="section section--accent" id="delivery">
       <div class="container">
         <div class="delivery-grid">
           <div class="delivery-left">
-            <div class="decor decor-left decor-xl" style="position: absolute; bottom: 0; left: -115px;">
+            <div class="decor decor-left decor-xl decor--delivery">
               <img src="images/decor-leaf-4.svg" alt="" />
             </div>
             <div class="delivery-head">
@@ -437,7 +489,7 @@
               <h2>Условия доставки</h2>
             </div>
             <div class="delivery-media">
-              <img src="images/upak.webp" alt="Упаковка и отправка товара" />
+              <img src="images/upak.webp" width="1200" height="896" alt="Упаковка и отправка товара" />
             </div>
           </div>
 
@@ -471,7 +523,7 @@
 
             <article class="delivery-card">
               <h3>Упаковка</h3>
-              <ul style="margin: 8px 0 8px 20px">
+              <ul class="delivery-list">
                 <li>
                   Корни саженцев ОКС упаковываются во влажный субстрат и дышащую
                   пленку.
@@ -498,8 +550,8 @@
 
 
     <!-- ===== CONTACTS ===== -->
-    <section class="section section--alt" id="contacts" style="position: relative;">
-      <div class="decor decor-right decor-md" style="top: 160px; right: -40px;">
+    <section class="section section--alt" id="contacts">
+      <div class="decor decor-right decor-md decor--contacts">
         <img src="images/decor-leaf-5.svg" alt="" />
       </div>
       <div class="container">
@@ -613,6 +665,8 @@
         </div>
       </div>
     </section>
+
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
@@ -742,7 +796,6 @@
         <div
           class="popup-icon"
           aria-hidden="true"
-          style="background: rgba(47, 93, 80, 0.15); color: var(--accent)"
         >
           <svg
             viewBox="0 0 24 24"
@@ -760,7 +813,7 @@
         <h3 id="promoPopupTitle">Ваше спецпредложение</h3>
         <p id="promoPopupText">
           Скидка 10% на первый заказ по промокоду
-          <strong style="color: var(--accent); font-size: 1.1em">РОСА10</strong
+          <strong class="promo-code">РОСА10</strong
           >!
         </p>
         <button class="btn" id="promoPopupOk" type="button">Отлично</button>
@@ -812,7 +865,7 @@
             href="https://avt-web-design.tilda.ws/"
             target="_blank"
             rel="noopener"
-            style="color: var(--accent); text-decoration: underline; font-weight: 600"
+            class="accent-link"
             >avt-web-design</a
           >.
         </p>

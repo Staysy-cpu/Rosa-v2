@@ -1,13 +1,3 @@
-
-      /* ===== ИСПРАВЛЕНИЕ ОШИБКИ (Практика) + Вызов поп-апа ===== */
-      function getSpecialOffer() {
-        const overlay = document.getElementById("promoPopupOverlay");
-        overlay.classList.add("is-open");
-        overlay.setAttribute("aria-hidden", "false");
-        document.body.classList.add("popup-open");
-        document.getElementById("promoPopupOk").focus();
-      }
-
       (function () {
         try {
           const header = document.getElementById("siteHeader");
@@ -252,6 +242,12 @@
         }
 
         // Закрытие обычного поп-апа
+        const specialOfferBtn = document.getElementById("specialOfferBtn");
+        if (specialOfferBtn) {
+          specialOfferBtn.addEventListener("click", function () {
+            openPopup(promoPopupOverlay, promoPopupOk);
+          });
+        }
         popupClose.addEventListener("click", function () {
           closePopup(popupOverlay);
         });
@@ -355,8 +351,6 @@
           alignDeliveryCards();
           window.addEventListener("resize", alignDeliveryCards);
         }
-/* ===== Form validation & submit ===== */
-
         /* ===== Form validation & submit ===== */
         const form = document.getElementById("contactForm");
 

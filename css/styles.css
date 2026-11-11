@@ -55,6 +55,10 @@
       html {
         scroll-behavior: smooth;
       }
+      section[id],
+      main[id] {
+        scroll-margin-top: calc(var(--header-h) + 16px);
+      }
       html,
       body {
         overflow-x: clip;
@@ -95,11 +99,31 @@
         margin-inline: auto;
         min-width: 0;
       }
+      .skip-link {
+        position: absolute;
+        left: 16px;
+        top: -100px;
+        z-index: 1000;
+        padding: 12px 20px;
+        border-radius: var(--radius);
+        background: var(--card);
+        color: var(--accent);
+        font-weight: 600;
+        box-shadow: var(--shadow-md);
+        transition: top var(--transition);
+      }
+      .skip-link:focus {
+        top: 16px;
+      }
       .section {
         padding: 96px 0;
+        position: relative;
       }
       .section--alt {
         background: var(--bg-alt);
+      }
+      .section--accent {
+        background: var(--accent);
       }
 
       /* ===== TYPOGRAPHY ===== */
@@ -132,6 +156,15 @@
       }
       .text-muted {
         color: var(--text-muted);
+      }
+      .promo-code {
+        color: var(--accent);
+        font-size: 1.1em;
+      }
+      .accent-link {
+        color: var(--accent);
+        text-decoration: underline;
+        font-weight: 600;
       }
 
       h1,
@@ -916,6 +949,26 @@
       .decor-xl {
         width: 360px;
       }
+      .decor--products {
+        top: 60px;
+        right: -110px;
+      }
+      .decor--why {
+        bottom: -20px;
+        left: 25px;
+      }
+      .decor--gallery {
+        bottom: 40px;
+        right: -95px;
+      }
+      .decor--delivery {
+        bottom: 0;
+        left: -115px;
+      }
+      .decor--contacts {
+        top: 160px;
+        right: -40px;
+      }
       .delivery-cards {
         display: flex;
         flex-direction: column;
@@ -948,11 +1001,11 @@
         font-size: 0.95rem;
         line-height: 1.6;
       }
+      .delivery-list {
+        margin: 8px 0 8px 20px;
+      }
       .delivery-card li {
         margin-bottom: 6px;
-      }
-      #delivery {
-        background: var(--accent);
       }
       .delivery-left {
         position: sticky;
@@ -1514,18 +1567,12 @@
         .gallery-controls {
           align-self: flex-end;
         }
-      }
-
-      @media (max-width: 1024px) {
         .decor {
           display: none;
         }
       }
 
       @media (max-width: 768px) {
-        .decor {
-          display: none;
-        }
         .hero::after {
           background: linear-gradient(
             to top,

@@ -27,6 +27,11 @@
             } else if (diff > 4 && y > 100) {
               header.classList.add("is-hidden");
             }
+            if (y > 10) {
+              header.classList.add("is-scrolled");
+            } else {
+              header.classList.remove("is-scrolled");
+            }
             lastY = y;
           },
           { passive: true },
@@ -364,18 +369,18 @@
 
           [name, phone].forEach(function (field) {
             if (!field.value.trim()) {
-              field.style.borderColor = "#c0392b";
+              field.classList.add("is-invalid");
               valid = false;
             } else {
-              field.style.borderColor = "";
+              field.classList.remove("is-invalid");
             }
           });
 
           if (!consent.checked) {
             valid = false;
-            consent.parentElement.style.color = "#c0392b";
+            consent.parentElement.classList.add("is-invalid");
           } else {
-            consent.parentElement.style.color = "";
+            consent.parentElement.classList.remove("is-invalid");
           }
 
           if (!valid) return;

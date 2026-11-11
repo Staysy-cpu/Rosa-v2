@@ -253,41 +253,18 @@
         inset: 0 0 auto 0;
         z-index: 100;
         height: var(--header-h);
-        /* Темное полупрозрачное стекло на основе цвета --text для контраста со светлым текстом */
-        background: rgba(35, 40, 35, 0.45);
-        /* Плотный блюр, чтобы фон под шапкой превращался в однородную матовую массу */
-        backdrop-filter: blur(30px) saturate(160%);
-        -webkit-backdrop-filter: blur(30px) saturate(160%);
-        /* Убираем рамки и тени по запросу */
-        border-bottom: none;
-        box-shadow: none;
-        transition:
-          transform 0.2s ease,
-          background 0.3s ease;
+        background: var(--accent);
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.2s ease;
         will-change: transform;
-      }
-
-      /* Фолбэк: если браузер не поддерживает блюр, делаем фон темнее для читаемости */
-      @supports not (backdrop-filter: blur(1px)) {
-        .site-header {
-          background: rgba(35, 40, 35, 0.85);
-        }
       }
 
       .site-header.is-hidden {
         transform: translateY(-100%);
       }
-      .site-header.is-scrolled {
-        background: var(--accent);
-        box-shadow: var(--shadow-sm);
-        backdrop-filter: blur(20px) saturate(160%);
-        -webkit-backdrop-filter: blur(20px) saturate(160%);
-      }
       .site-header--static {
         position: static;
         background: var(--accent);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
         box-shadow: var(--shadow-sm);
       }
       .header-inner {
@@ -591,13 +568,13 @@
       .hero-badge {
         padding: 8px 16px;
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(22, 28, 23, 0.32);
+        border: 1px solid var(--border);
+        background: var(--bg-alt);
         font-family: var(--font-body);
-        font-weight: 400;
+        font-weight: 500;
         font-size: 0.78rem;
         letter-spacing: 0.02em;
-        color: rgba(255, 255, 255, 0.94);
+        color: var(--accent);
         line-height: 1.3;
       }
 
@@ -741,6 +718,9 @@
         min-width: 0;
         overflow: hidden;
       }
+      .why-title {
+        color: inherit;
+      }
       .why-card:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-md);
@@ -765,6 +745,9 @@
       .why-card--accent .why-text {
         color: rgba(255, 255, 255, 0.82);
       }
+      .why-card--accent:hover .why-num {
+        color: #fff;
+      }
 
       .why-num {
         font-family: var(--font-head);
@@ -780,9 +763,6 @@
       .why-card:hover .why-num {
         transform: scale(1.15);
         color: var(--accent);
-      }
-      .why-card--accent:hover .why-num {
-        color: #fff;
       }
       .why-title {
         font-family: var(--font-head);
@@ -1188,6 +1168,14 @@
         fill: var(--accent);
       }
 
+      .messenger-link--max-bg {
+        background-color: var(--bg);
+        background-image: url('https://maxicons.ru/icons/Max_logo.svg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
       .map-wrap {
         flex: 1;
         min-height: 240px;
@@ -1528,15 +1516,27 @@
         }
       }
 
+      @media (max-width: 1024px) {
+        .decor {
+          display: none;
+        }
+      }
+
       @media (max-width: 768px) {
+        .decor {
+          display: none;
+        }
         .hero::after {
           background: linear-gradient(
-            180deg,
-            transparent 0%,
-            transparent 40%,
-            rgba(0, 0, 0, 0.55) 70%,
-            rgba(0, 0, 0, 0.82) 100%
+            to top,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.75) 80%,
+            transparent 100%
           );
+        }
+        .hero h1,
+        .hero-sub {
+          text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
         }
         .gallery-slide {
           flex: 0 0 100%;

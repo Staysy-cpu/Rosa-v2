@@ -9,7 +9,8 @@
       }
 
       (function () {
-        const header = document.getElementById("siteHeader");
+        try {
+          const header = document.getElementById("siteHeader");
         const burger = document.getElementById("burger");
         const menu = document.getElementById("mobileMenu");
         const menuClose = document.getElementById("menuClose");
@@ -408,5 +409,8 @@
             }
           });
         });
+        } catch (e) {
+          console.warn("Script initialization skipped on this page:", e.message);
+        }
       })();
   

@@ -873,5 +873,99 @@
       </div>
     </div>
 
+    <!-- ===== POPUP: Cookie ===== -->
+    <div
+      class="popup-overlay"
+      id="cookiePopupOverlay"
+      role="presentation"
+      aria-hidden="true"
+    >
+      <div
+        class="popup cookie-popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cookiePopupTitle"
+      >
+        <button
+          class="popup-close"
+          id="cookiePopupClose"
+          type="button"
+          aria-label="Закрыть"
+        >
+          ×
+        </button>
+
+        <!-- Основной вид -->
+        <div class="cookie-popup__view active" id="cookieViewMain">
+          <h3 id="cookiePopupTitle">Файлы cookie</h3>
+          <p>
+            Мы используем файлы cookie для корректной работы сайта и анализа
+            трафика. Выберите, какие категории разрешить.
+          </p>
+          <div class="cookie-popup__actions">
+            <button
+              class="btn btn--outline"
+              id="cookieBtnSettings"
+              type="button"
+            >
+              Настройки
+            </button>
+            <button class="btn" id="cookieBtnAcceptAll" type="button">
+              Принять все
+            </button>
+          </div>
+        </div>
+
+        <!-- Вид настроек -->
+        <div
+          class="cookie-popup__view hidden"
+          id="cookieViewSettings"
+        >
+          <h3>Настройки cookie</h3>
+          <div class="cookie-categories">
+            <div class="cookie-category">
+              <div class="cookie-category__row">
+                <label class="cookie-checkbox">
+                  <input
+                    type="checkbox"
+                    checked
+                    disabled
+                    readonly
+                  />
+                  <span>Необходимые</span>
+                </label>
+              </div>
+              <p class="cookie-category__desc">
+                Обеспечивают работу сайта (навигация, безопасность, формы).
+              </p>
+            </div>
+            <div class="cookie-category">
+              <div class="cookie-category__row">
+                <label class="cookie-checkbox">
+                  <input type="checkbox" id="cookieAnalytic" />
+                  <span>Аналитика</span>
+                </label>
+              </div>
+              <p class="cookie-category__desc">
+                Собирают обезличенную статистику посещений для улучшения сайта.
+              </p>
+            </div>
+          </div>
+          <div class="cookie-popup__actions">
+            <button
+              class="btn btn--outline"
+              id="cookieBtnBack"
+              type="button"
+            >
+              Назад
+            </button>
+            <button class="btn" id="cookieBtnSave" type="button">
+              Сохранить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

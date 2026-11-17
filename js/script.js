@@ -1,5 +1,6 @@
       (function () {
         try {
+          let lastFocused = null;
           const header = document.getElementById("siteHeader");
         const burger = document.getElementById("burger");
         const menu = document.getElementById("mobileMenu");
@@ -261,7 +262,15 @@
         }
 
         if (cookieOverlay) {
-          if (!getCookieConsent()) {
+          const urlParams = new URLSearchParams(window.location.search);
+          const forceShowCookie = urlParams.get("show-cookie") === "1";
+          const resetCookie = urlParams.get("reset-cookie") === "1";
+
+          if (resetCookie) {
+            localStorage.removeItem(COOKIE_KEY);
+          }
+
+          if (!getCookieConsent() || forceShowCookie) {
             openPopup(cookieOverlay, cookieBtnAcceptAll);
           }
 
@@ -297,8 +306,6 @@
         }
 
 
-        let lastFocused = null;
-
         function openPopup(overlayEl, focusEl) {
           lastFocused = document.activeElement;
           overlayEl.classList.add("is-open");
@@ -324,7 +331,8 @@
         // Закрытие обычного поп-апа
         const specialOfferBtn = document.getElementById("specialOfferBtn");
         if (specialOfferBtn) {
-          specialOfferBtn.addEventListener("click", function () {
+          specialOfferBtn.addEventListener("click", function (e) {
+            e.preventDefault();
             openPopup(promoPopupOverlay, promoPopupOk);
           });
         }
